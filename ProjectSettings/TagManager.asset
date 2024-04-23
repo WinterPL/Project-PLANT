@@ -6,11 +6,14 @@ TagManager:
   tags:
   - Right
   - Left
+  - EneHead
+  - EneBody
+  - EneLeg
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - playerOnly
   - Water
   - UI
   - 
