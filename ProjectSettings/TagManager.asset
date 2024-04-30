@@ -4,11 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Right
-  - Left
-  - EneHead
-  - EneBody
-  - EneLeg
+  - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -45,7 +42,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Gameplay
-    uniqueID: 515477303
     locked: 0

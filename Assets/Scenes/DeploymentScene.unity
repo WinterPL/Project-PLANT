@@ -243,6 +243,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043312bb65de01141b42856a62de2c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 8913699270082455908, guid: c7e3a45eaa7c4bd478e8bdc1826125cb, type: 3}
+  bTransform: {fileID: 423617542}
+  timer: 0
+  canShoot: 1
+  RateOfF: 0
 --- !u!1 &355140629
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +361,7 @@ GameObject:
   - component: {fileID: 423617542}
   - component: {fileID: 423617543}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: bTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -417,7 +422,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -473,6 +478,7 @@ GameObject:
   - component: {fileID: 768414878}
   - component: {fileID: 768414877}
   - component: {fileID: 768414876}
+  - component: {fileID: 768414879}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -507,6 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f09e685db9080da4b980e69319330618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gun: {fileID: 768414879}
   day: 0
 --- !u!4 &768414878
 Transform:
@@ -523,6 +530,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &768414879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768414875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e33fd0122b0a14a8b00db7bf6f502f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bDamage: 1
+  bRateofFire: 1
+  bSpeed: 10
+  bPeiceing: 0
 --- !u!1 &781590228
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +636,7 @@ GameObject:
   - component: {fileID: 819009172}
   m_Layer: 3
   m_Name: MoveUP
-  m_TagString: Right
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1105,7 +1128,7 @@ GameObject:
   - component: {fileID: 1610130566}
   m_Layer: 3
   m_Name: MoveBack
-  m_TagString: Left
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1281,7 +1304,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
