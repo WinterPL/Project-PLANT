@@ -5,21 +5,24 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    private static GameManager instance;
-    public GUN gun = new GUN();
+    public static GameManager instance;
+    public GUN gun;
+    public HP hp;
     [SerializeField] public int day = 1;
 
-    public static GameManager Instance
+    private void Awake()
     {
-        get
+        if (instance == null)
         {
-            if (instance == null)
-            {
-                instance = new GameManager();
-            }
-
-            return instance;
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
+
+    public static GameManager Instance { get { return instance; } }
 
 }

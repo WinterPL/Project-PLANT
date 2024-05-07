@@ -40,7 +40,6 @@ public class Shooting : MonoBehaviour
 
         if(Input.GetMouseButton(0) && canShoot)
         {
-            Debug.Log("Shoot");
             canShoot = false;
             Instantiate(bullet,bTransform.position,Quaternion.identity);
         }

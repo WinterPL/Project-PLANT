@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDispenser : MonoBehaviour
 {
 
-    private int currDay = GameManager.Instance.day;
+    //private int currDay = 0;
     [SerializeField]private int eneNum;
     [SerializeField]private float eneSpawnTime = 0.0f;
     [SerializeField] private GameObject _Enemy;
@@ -17,7 +17,7 @@ public class EnemyDispenser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        eneNum = currDay * 2;
+        eneNum = GameManager.Instance.day * 2;
     }
 
     // Update is called once per frame

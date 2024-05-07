@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
     public float force;
     public int peicing;
 
+    private float cooldown = 7.0f;
+
     void Start()
     {
         force = GameManager.Instance.gun.bSpeed;
@@ -27,16 +29,21 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(peicing<0)
+        cooldown -= Time.deltaTime;
+
+        if(peicing<0|| cooldown <= 0)
         {
             Destroy(this.gameObject);
         }
+
+
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
+            //Debug.Log("Hit");
             peicing--;
         }
     }

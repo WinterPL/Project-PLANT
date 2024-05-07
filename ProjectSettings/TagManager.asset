@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Enemy
+  - Barricade
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - playerOnly
   - Water
   - UI
-  - 
+  - BulletCollision
   - 
   - 
   - 

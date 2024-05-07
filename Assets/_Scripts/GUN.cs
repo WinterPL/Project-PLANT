@@ -13,7 +13,6 @@ public class GUN : MonoBehaviour
     {
         //desirelize
     }
-
     public void UpgradeDMG()
     {
         bDamage += 1;
