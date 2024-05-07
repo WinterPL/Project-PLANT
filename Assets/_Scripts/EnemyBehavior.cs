@@ -99,9 +99,6 @@ public class EnemyBehavior : MonoBehaviour
 
                 break;
         }
-
-        
-
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -131,7 +128,6 @@ public class EnemyBehavior : MonoBehaviour
                 {
                     speed = 0.1f;
                 }
-                
             }
         }
     }
