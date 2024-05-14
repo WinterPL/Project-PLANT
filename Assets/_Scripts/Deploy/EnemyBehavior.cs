@@ -6,7 +6,8 @@ public class EnemyBehavior : MonoBehaviour
 {
     [SerializeField] private float HP = 10;
     [SerializeField] private float speed = 1.5f;
-    [SerializeField] private int ADMG = 10;
+    [SerializeField] private int MxADMG = 10;
+    [SerializeField] private int MnADMG = 5;
     //[SerializeField] private int bDMG = 10;
     [SerializeField] private float HitCD = 5.0f;
     [SerializeField] private bool CanHit = true;
@@ -49,8 +50,7 @@ public class EnemyBehavior : MonoBehaviour
                     this.transform.Translate(Vector3.left * speed * Time.deltaTime);
                     if (HP <= 0)
                     {
-                        Destroy(this.gameObject);
-                        //Debug.Log("Dead");
+                        death();
                     }
                 }
                 else
@@ -75,14 +75,14 @@ public class EnemyBehavior : MonoBehaviour
             case Behavior.attack:
                 if (HP <= 0)
                 {
-                    Destroy(this.gameObject);
-                    //Debug.Log("Dead");
+                    death();
                 }
                 if (!dummy)
                 {
                     if(CanHit)
                     {
                         CanHit = false;
+                        int ADMG = Random.Range(MxADMG,MnADMG);
                         GameManager.instance.hp.GotHit(ADMG);
                     }
                     else
@@ -136,9 +136,14 @@ public class EnemyBehavior : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Barricade"))
         {
-            Debug.Log("Barricade hit");
+            //Debug.Log("Barricade hit");
             behave = Behavior.attack;
         }
     }
 
+    private void death()
+    {
+        Destroy(this.gameObject);
+        GameManager.instance.eneLeft--;
+    }
 }

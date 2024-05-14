@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Shooting : MonoBehaviour
 {
@@ -38,10 +39,13 @@ public class Shooting : MonoBehaviour
             }
         }
 
-        if(Input.GetMouseButton(0) && canShoot)
+        if (SceneManager.GetActiveScene().name == "DeploymentScene")
         {
-            canShoot = false;
-            Instantiate(bullet,bTransform.position,Quaternion.identity);
+            if (Input.GetMouseButton(0) && canShoot)
+            {
+                canShoot = false;
+                Instantiate(bullet, bTransform.position, Quaternion.identity);
+            }
         }
 
     }

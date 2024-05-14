@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
     public GUN gun;
     public HP hp;
     [SerializeField] public int day = 1;
+    public int gold;
+    public int eneLeft = 1;
 
     private void Awake()
     {
@@ -24,5 +27,28 @@ public class GameManager : MonoBehaviour
     }
 
     public static GameManager Instance { get { return instance; } }
+
+    private void Update()
+    {
+        if(eneLeft <= 0)
+        {
+            DayComplete();
+        }
+    }
+
+    private void DayComplete()
+    {
+        int enemies = day * 2;
+        for(int i = enemies; i > 0; i--)
+        {
+            gold += Random.Range(50,100);
+            //Debug.Log("Get Gold");
+        }
+        day++;
+        eneLeft = 1;
+        SceneManager.LoadScene(0);
+    }
+
+
 
 }

@@ -18,6 +18,7 @@ public class EnemyDispenser : MonoBehaviour
     void Start()
     {
         eneNum = GameManager.Instance.day * 2;
+        GameManager.instance.eneLeft = eneNum;
     }
 
     // Update is called once per frame
