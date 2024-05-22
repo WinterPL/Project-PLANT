@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int day = 1;
     public int gold;
     public int eneLeft = 1;
+    public bool GODMODE = false;
 
     private void Awake()
     {
@@ -33,6 +34,11 @@ public class GameManager : MonoBehaviour
         if(eneLeft <= 0)
         {
             DayComplete();
+        }
+
+        if(GODMODE)
+        {
+            gold = 99999999;
         }
     }
 

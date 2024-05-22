@@ -13,7 +13,7 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private bool CanHit = true;
     [SerializeField] private Collider2D[] colliders;
 
-    public bool dummy = true;
+    public bool dummy = false;
     public bool needHeal = false;
     public float healCD = 7.0f;
 

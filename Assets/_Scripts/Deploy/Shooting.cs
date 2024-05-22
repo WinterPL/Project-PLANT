@@ -17,7 +17,7 @@ public class Shooting : MonoBehaviour
 
     void Start()
     {
-        RateOfF = GameManager.Instance.gun.bRateofFire;
+        RateOfF = GameManager.Instance.gun.gRateofFire;
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 

@@ -4,29 +4,82 @@ using UnityEngine;
 
 public class GUN : MonoBehaviour
 {
+    [SerializeField] public int gRateOfFireLV = 1;
+    [SerializeField] public float gRateofFire = 1.0f;
+
+    [SerializeField] public int bDamageLV = 1;
     [SerializeField] public int bDamage = 1;
-    [SerializeField] public float bRateofFire = 1.0f;
+    [SerializeField] public int bSpeedLV = 1;
     [SerializeField] public float bSpeed = 10.0f;
+    [SerializeField] public int bPeiceingLV = 1;
     [SerializeField] public int bPeiceing = 0;
 
     void Start()
     {
         //desirelize
     }
-    public void UpgradeDMG()
+
+    public string UpgradeROF()
     {
-        bDamage += 1;
+        if (gRateOfFireLV < 10 && GameManager.Instance.gold >= (gRateOfFireLV * 500))
+        {
+            gRateofFire -= 0.075f;
+            gRateOfFireLV++;
+            GameManager.Instance.gold -= (gRateOfFireLV * 500);
+            return "Weapon Upgrade to Level " + gRateOfFireLV;
+        }
+        else if(gRateOfFireLV == 10)
+        {
+            return "Weapon is already MAX LEVEL";
+        }
+        else
+        {
+            return "Insufficient Gold";
+        }
     }
-    public void UpgradeROF()
+
+    public string UpgradeDMG()
     {
-        bRateofFire += 1.0f;
+        if (GameManager.Instance.gold >= (bDamageLV * 150))
+        {
+            bDamage += 1;
+            bDamageLV++;
+            GameManager.Instance.gold -= (bDamageLV * 150);
+            return "Bullet Damage increase to " + bDamage;
+        }
+        else
+        {
+            return "Insufficient Gold";
+        }
     }
-    public void UpgradeSPD()
+
+    public string UpgradeSPD()
     {
-        bSpeed += 1.0f;
+        if (GameManager.Instance.gold >= (bSpeedLV * 150))
+        {
+            bSpeed += 1;
+            bSpeedLV++;
+            GameManager.Instance.gold -= (bSpeedLV * 150);
+            return "Bullet Speed increase to " + bSpeed;
+        }
+        else
+        {
+            return "Insufficient Gold";
+        }
     }
-    public void UpgradeP()
+
+    public string UpgradeP()
     {
-        bPeiceing += 1;
+        if (GameManager.Instance.gold >= (bPeiceingLV * 150))
+        {
+            bPeiceing += 1;
+            bPeiceingLV++;
+            GameManager.Instance.gold -= (bPeiceingLV * 150);
+            return "Bullet Peicing increase to " + bPeiceing;
+        }
+        else
+        {
+            return "Insufficient Gold";
+        }
     }
 }
