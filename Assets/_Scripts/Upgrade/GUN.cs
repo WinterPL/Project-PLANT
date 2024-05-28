@@ -82,4 +82,16 @@ public class GUN : MonoBehaviour
             return "Insufficient Gold";
         }
     }
+
+    public void GUNReset()
+    {
+        gRateOfFireLV = 1;
+        gRateofFire = 1.0f;
+        bDamageLV = 1;
+        bDamage = 1;
+        bSpeedLV = 1;
+        bSpeed = 10.0f;
+        bPeiceingLV = 1;
+        bPeiceing = 0;
+    }
 }

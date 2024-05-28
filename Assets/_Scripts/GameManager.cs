@@ -7,12 +7,12 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance;
-    public GUN gun;
-    public HP hp;
+    [SerializeField] public GUN gun;
+    [SerializeField] public HP hp;
     [SerializeField] public int day = 1;
-    public int gold;
-    public int eneLeft = 1;
-    public bool GODMODE = false;
+    [SerializeField] public int gold;
+    [SerializeField] public int eneLeft = 1;
+    [SerializeField] public bool GODMODE = false;
 
     private void Awake()
     {
@@ -26,19 +26,27 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Start()
+    {
+        if (GODMODE)
+        {
+            gold = 99999999;
+        }
+    }
 
     public static GameManager Instance { get { return instance; } }
 
     private void Update()
     {
+        //WIN
         if(eneLeft <= 0)
         {
             DayComplete();
         }
-
-        if(GODMODE)
+        //LOSE
+        if(hp.currHP <= 0)
         {
-            gold = 99999999;
+            DayFail();
         }
     }
 
@@ -51,6 +59,16 @@ public class GameManager : MonoBehaviour
             //Debug.Log("Get Gold");
         }
         day++;
+        eneLeft = 1;
+        SceneManager.LoadScene(0);
+    }
+
+    private void DayFail()
+    {
+        hp.HPReset();
+        gun.GUNReset();
+        gold = 0;
+        day = 1;
         eneLeft = 1;
         SceneManager.LoadScene(0);
     }

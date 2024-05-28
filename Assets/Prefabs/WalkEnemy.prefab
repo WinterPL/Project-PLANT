@@ -330,12 +330,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7239972199275282114}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1478a0cb99efdf54aab2187da0b575c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 7268ff4f027abcb4588f7f97a665a0d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 10
   speed: 1.5
-  ADMG: 10
+  MxADMG: 10
+  MnADMG: 5
   HitCD: 5
   CanHit: 1
   colliders:
@@ -344,8 +345,8 @@ MonoBehaviour:
   - {fileID: 1213193800155027720}
   dummy: 0
   needHeal: 0
-  healCD: 3
-  Walking: {r: 0, g: 0.44313726, b: 0.015686275, a: 1}
+  healCD: 7
+  Walking: {r: 0, g: 1, b: 0.04225135, a: 1}
   Hitting: {r: 1, g: 0, b: 0, a: 1}
 --- !u!50 &6411448534424211169
 Rigidbody2D:

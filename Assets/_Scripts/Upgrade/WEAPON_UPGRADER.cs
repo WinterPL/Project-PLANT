@@ -5,17 +5,17 @@ using TMPro;
 
 public class WEAPON_UPGRADER : MonoBehaviour
 {
-    public TMP_Text RofFLevel_Text;
-    public TMP_Text RofFLevel_Text_Price;
+    [SerializeField] public TMP_Text RofFLevel_Text;
+    [SerializeField] public TMP_Text RofFLevel_Text_Price;
 
-    public TMP_Text bDamage_Text;
-    public TMP_Text bDamage_Text_Price;
-    public TMP_Text bSpeed_Text;
-    public TMP_Text bSpeed_Text_Price;
-    public TMP_Text bPeicing_Text;
-    public TMP_Text bPeicing_Text_Price;
+    [SerializeField] public TMP_Text bDamage_Text;
+    [SerializeField] public TMP_Text bDamage_Text_Price;
+    [SerializeField] public TMP_Text bSpeed_Text;
+    [SerializeField] public TMP_Text bSpeed_Text_Price;
+    [SerializeField] public TMP_Text bPeicing_Text;
+    [SerializeField] public TMP_Text bPeicing_Text_Price;
 
-    public TMP_Text Debug_TEXT;
+    [SerializeField] public TMP_Text Debug_TEXT;
 
     // Start is called before the first frame update
     void Start()

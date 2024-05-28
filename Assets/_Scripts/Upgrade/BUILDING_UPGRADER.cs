@@ -5,17 +5,12 @@ using TMPro;
 
 public class BUILDING_UPGRADER : MonoBehaviour
 {
-    public TMP_Text Level_Text;
-    public TMP_Text HP_TEXT;
-    public TMP_Text UpgradePRICE_TEXT;
-    public TMP_Text RepairHPRICE_TEXT;
-    public TMP_Text RepairFPRICE_TEXT;
-    public TMP_Text Debug_TEXT;
-
-    void Start()
-    {
-
-    }
+    [SerializeField] public TMP_Text Level_Text;
+    [SerializeField] public TMP_Text HP_TEXT;
+    [SerializeField] public TMP_Text UpgradePRICE_TEXT;
+    [SerializeField] public TMP_Text RepairHPRICE_TEXT;
+    [SerializeField] public TMP_Text RepairFPRICE_TEXT;
+    [SerializeField] public TMP_Text Debug_TEXT;
 
     void Update()
     {

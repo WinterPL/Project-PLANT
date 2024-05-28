@@ -4,8 +4,10 @@ using UnityEngine;
 using TMPro;
 public class TextManager : MonoBehaviour
 {
-    public TMP_Text Text;
-    public bool isGold = true;
+    [SerializeField] public TMP_Text Text;
+    [SerializeField] public bool isGold = false;
+    [SerializeField] public bool isENEleft = false;
+    [SerializeField] public bool isDay = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,9 +15,13 @@ public class TextManager : MonoBehaviour
         {
         Text.text = GameManager.instance.gold.ToString();
         }
-        else
+        else if (isENEleft)
         {
-            Text.text = GameManager.Instance.eneLeft.ToString();
+            Text.text = "Enemy left : " + GameManager.Instance.eneLeft.ToString();
+        }
+        else if(isDay)
+        {
+            Text.text = "DAY : " + GameManager.Instance.day.ToString();
         }
     }
 
@@ -26,9 +32,13 @@ public class TextManager : MonoBehaviour
         {
             Text.text = GameManager.instance.gold.ToString();
         }
-        else
+        else if (isENEleft)
         {
             Text.text = "Enemy left : " + GameManager.Instance.eneLeft.ToString();
+        }
+        else if (isDay)
+        {
+            Text.text = "DAY : " + GameManager.Instance.day.ToString();
         }
     }
 }

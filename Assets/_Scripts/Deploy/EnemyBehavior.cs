@@ -8,7 +8,6 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private float speed = 1.5f;
     [SerializeField] private int MxADMG = 10;
     [SerializeField] private int MnADMG = 5;
-    //[SerializeField] private int bDMG = 10;
     [SerializeField] private float HitCD = 5.0f;
     [SerializeField] private bool CanHit = true;
     [SerializeField] private Collider2D[] colliders;

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private Camera mainCam;
-    private Vector3 mousePos;
-    private Rigidbody2D rb;
-    public float force;
-    public int peicing;
+    [SerializeField] private Camera mainCam;
+    [SerializeField] private Vector3 mousePos;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] public float force;
+    [SerializeField] public int peicing;
 
-    private float cooldown = 7.0f;
+    [SerializeField] private float cooldown = 7.0f;
 
     void Start()
     {

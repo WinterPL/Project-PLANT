@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class HP : MonoBehaviour
 {
-    public int currHP = 100;
-    public int barricadeLV = 1;
+    [SerializeField] public int currHP = 100;
+    [SerializeField] public int barricadeLV = 1;
 
-    public GameObject[] barricade;
+    [SerializeField] public GameObject[] barricade;
 
     void Start()
     {
@@ -117,4 +117,9 @@ public class HP : MonoBehaviour
         currHP -= dmg;
     }
 
+    public void HPReset()
+    {
+        currHP = 100;
+        barricadeLV = 1;
+    }
 }

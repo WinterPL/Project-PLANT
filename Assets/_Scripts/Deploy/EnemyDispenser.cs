@@ -9,9 +9,9 @@ public class EnemyDispenser : MonoBehaviour
     [SerializeField]private int eneNum;
     [SerializeField]private float eneSpawnTime = 0.0f;
     [SerializeField] private GameObject _Enemy;
-    private float eneSpawnMinX = 10.0f;
-    private float eneSpawnMaxX = 15.0f;
-    private float eneSpawnMinY = -3.35f;
+    private float eneSpawnMinX = 9.1f;
+    private float eneSpawnMaxX = 10.0f;
+    private float eneSpawnMinY = -3.45f;
     private float eneSpawnMaxY = 1.4f;
 
     // Start is called before the first frame update
