@@ -17,10 +17,6 @@ public class EnemyBehavior : MonoBehaviour
     public float healCD = 7.0f;
 
 
-    public Color Walking;
-    public Color Hitting;
-
-
     SpriteRenderer sprite;
     enum Behavior
     { 
@@ -35,7 +31,6 @@ public class EnemyBehavior : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         behave = Behavior.walk;
-        sprite.color = Walking;
     }
 
     // Update is called once per frame
@@ -86,7 +81,6 @@ public class EnemyBehavior : MonoBehaviour
                     }
                     else
                     {
-                        sprite.color = Hitting;
                         HitCD -= Time.deltaTime;
                         if(HitCD<=0.0f)
                         {

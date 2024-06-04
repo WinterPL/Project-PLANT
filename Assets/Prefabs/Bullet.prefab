@@ -96,11 +96,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8913699270082455908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b8099f78da18824d9dc279689477e28, type: 3}
+  m_Script: {fileID: 11500000, guid: a33beb60adeb2434597b0c6d212460c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
+  mousePos: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
   force: 0
   peicing: 0
+  cooldown: 7
 --- !u!50 &4452348864159002286
 Rigidbody2D:
   serializedVersion: 4
