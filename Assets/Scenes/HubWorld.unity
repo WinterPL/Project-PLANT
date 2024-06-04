@@ -5365,7 +5365,7 @@ Transform:
   m_GameObject: {fileID: 1298674861}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.166, y: 0.1981, z: 0}
+  m_LocalPosition: {x: 1.462, y: 0.251, z: 0}
   m_LocalScale: {x: 1, y: 0.5163243, z: 0.16915}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6432,7 +6432,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1663852744}
@@ -6478,8 +6478,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 2547e35e8a689c2498fe356c0166daa8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6498,7 +6498,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1569975608}
-  - component: {fileID: 1569975609}
   m_Layer: 0
   m_Name: RotatePoint
   m_TagString: Untagged
@@ -6515,7 +6514,7 @@ Transform:
   m_GameObject: {fileID: 1569975607}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.127, y: 0.301, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6523,23 +6522,6 @@ Transform:
   - {fileID: 673777414}
   m_Father: {fileID: 1663852744}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1569975609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1569975607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b0f3c11ecea645429c1e647329ccfc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 8913699270082455908, guid: c7e3a45eaa7c4bd478e8bdc1826125cb, type: 3}
-  bTransform: {fileID: 673777414}
-  timer: 0
-  canShoot: 1
-  RateOfF: 0
 --- !u!1 &1596112969
 GameObject:
   m_ObjectHideFlags: 0
@@ -6865,7 +6847,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.21, y: -3.73, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1564058687}
