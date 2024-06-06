@@ -23,9 +23,9 @@ public class GUN : MonoBehaviour
     {
         if (gRateOfFireLV < 10 && GameManager.Instance.gold >= (gRateOfFireLV * 500))
         {
+            GameManager.Instance.gold -= (gRateOfFireLV * 500);
             gRateofFire -= 0.075f;
             gRateOfFireLV++;
-            GameManager.Instance.gold -= (gRateOfFireLV * 500);
             return "Weapon Upgrade to Level " + gRateOfFireLV;
         }
         else if(gRateOfFireLV == 10)
@@ -42,9 +42,9 @@ public class GUN : MonoBehaviour
     {
         if (GameManager.Instance.gold >= (bDamageLV * 150))
         {
+            GameManager.Instance.gold -= (bDamageLV * 150);
             bDamage += 1;
             bDamageLV++;
-            GameManager.Instance.gold -= (bDamageLV * 150);
             return "Bullet Damage increase to " + bDamage;
         }
         else
@@ -57,9 +57,9 @@ public class GUN : MonoBehaviour
     {
         if (GameManager.Instance.gold >= (bSpeedLV * 150))
         {
+            GameManager.Instance.gold -= (bSpeedLV * 150);
             bSpeed += 1;
             bSpeedLV++;
-            GameManager.Instance.gold -= (bSpeedLV * 150);
             return "Bullet Speed increase to " + bSpeed;
         }
         else
@@ -72,9 +72,9 @@ public class GUN : MonoBehaviour
     {
         if (GameManager.Instance.gold >= (bPeiceingLV * 150))
         {
+            GameManager.Instance.gold -= (bPeiceingLV * 150);
             bPeiceing += 1;
             bPeiceingLV++;
-            GameManager.Instance.gold -= (bPeiceingLV * 150);
             return "Bullet Peicing increase to " + bPeiceing;
         }
         else

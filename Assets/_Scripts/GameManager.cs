@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        gold = 0;
         if (GODMODE)
         {
             gold = 99999999;

@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] public float force;
     [SerializeField] public int peicing;
 
-    [SerializeField] private float cooldown = 7.0f;
+    private float BLife = 7.0f;
 
     void Start()
     {
@@ -29,9 +29,9 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cooldown -= Time.deltaTime;
+        BLife -= Time.deltaTime;
 
-        if(peicing<0|| cooldown <= 0)
+        if(peicing<0|| BLife <= 0)
         {
             Destroy(this.gameObject);
         }
