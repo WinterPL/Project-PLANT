@@ -33,7 +33,7 @@ public class EnemyDispenser : MonoBehaviour
             Instantiate(_Enemy,position,Quaternion.identity);
 
             eneNum--;
-            eneSpawnTime = Random.Range(1.0f,5.0f);
+            eneSpawnTime = Random.Range(1.0f,3.0f);
         }
     }
 }

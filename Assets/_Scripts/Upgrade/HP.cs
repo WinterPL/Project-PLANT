@@ -56,9 +56,9 @@ public class HP : MonoBehaviour
     {
         if(GameManager.Instance.gold >= (barricadeLV*1000) )
         {
+            GameManager.Instance.gold -= (barricadeLV * 1000);
             barricadeLV++;
             currHP = barricadeLV * 100;
-            GameManager.Instance.gold -= (barricadeLV * 1000);
             return "Barricade Upgrade to Level " + barricadeLV;
         }
         else
