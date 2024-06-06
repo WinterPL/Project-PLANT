@@ -1097,6 +1097,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1208898891}
   - component: {fileID: 1208898892}
+  - component: {fileID: 1208898893}
   m_Layer: 0
   m_Name: Player's Body
   m_TagString: Untagged
@@ -1171,6 +1172,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1208898893
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208898890}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5e3bcf5b11fb545469f6a3b114bb7f87, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1358856016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,6 +1850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  P_Animator: {fileID: 1208898893}
 --- !u!114 &2086120774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1840,7 +1863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 578fe91cba3ff8a44bede78f167fbe78, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 367ddc52f931c184bb7afa81fcc273d6, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -1857,7 +1880,7 @@ MonoBehaviour:
   m_DefaultControlScheme: 
   m_DefaultActionMap: Deployment
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1358856018}
 --- !u!61 &2086120775
 BoxCollider2D:
   m_ObjectHideFlags: 0
