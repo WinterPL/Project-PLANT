@@ -5,8 +5,8 @@ using TMPro;
 
 public class WEAPON_UPGRADER : MonoBehaviour
 {
-    [SerializeField] public TMP_Text RofFLevel_Text;
-    [SerializeField] public TMP_Text RofFLevel_Text_Price;
+    [SerializeField] public TMP_Text rofFLevel_Text;
+    [SerializeField] public TMP_Text rofFLevel_Text_Price;
 
     [SerializeField] public TMP_Text bDamage_Text;
     [SerializeField] public TMP_Text bDamage_Text_Price;
@@ -17,6 +17,7 @@ public class WEAPON_UPGRADER : MonoBehaviour
 
     [SerializeField] public TMP_Text Debug_TEXT;
 
+    [SerializeField] private AudioSource clickAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,13 +29,13 @@ public class WEAPON_UPGRADER : MonoBehaviour
     {
         if(GameManager.Instance.gun.gRateOfFireLV == 10)
         {
-            RofFLevel_Text.text = "Weapon Level : MAX";
-            RofFLevel_Text_Price.text = " ";
+            rofFLevel_Text.text = "Weapon Level : MAX";
+            rofFLevel_Text_Price.text = " ";
         }
         else
         {
-        RofFLevel_Text.text = "Weapon Level : " + GameManager.Instance.gun.gRateOfFireLV.ToString();
-        RofFLevel_Text_Price.text = (GameManager.Instance.gun.gRateOfFireLV * 500).ToString();
+        rofFLevel_Text.text = "Weapon Level : " + GameManager.Instance.gun.gRateOfFireLV.ToString();
+        rofFLevel_Text_Price.text = (GameManager.Instance.gun.gRateOfFireLV * 500).ToString();
         }
 
         bDamage_Text.text = "DAMAGE : " + GameManager.Instance.gun.bDamage.ToString();
@@ -47,19 +48,23 @@ public class WEAPON_UPGRADER : MonoBehaviour
 
     public void UpRofFire()
     {
+        clickAudio.Play();
         Debug_TEXT.text = GameManager.Instance.gun.UpgradeROF().ToString();
     }
 
     public void UpDMG()
     {
+        clickAudio.Play();
         Debug_TEXT.text = GameManager.Instance.gun.UpgradeDMG().ToString();
     }
     public void UpSPD()
     {
+        clickAudio.Play();
         Debug_TEXT.text = GameManager.Instance.gun.UpgradeSPD().ToString();
     }
     public void UpP()
     {
+        clickAudio.Play();
         Debug_TEXT.text = GameManager.Instance.gun.UpgradeP().ToString();
     }
 

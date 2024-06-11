@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    [SerializeField] private float HP = 10;
+    [SerializeField] private float hP = 10;
     [SerializeField] private float speed = 1.5f;
-    [SerializeField] private int MxADMG = 10;
-    [SerializeField] private int MnADMG = 5;
-    [SerializeField] private float HitCD = 5.0f;
-    [SerializeField] private bool CanHit = true;
+    [SerializeField] private int mxADMG = 10;
+    [SerializeField] private int mnADMG = 5;
+    [SerializeField] private float hitCD = 5.0f;
+    [SerializeField] private bool canHit = true;
     [SerializeField] private Collider2D[] colliders;
+    private float hitWait = 0.2f;
 
     public bool dummy = false;
     public bool needHeal = false;
     public float healCD = 7.0f;
+    [SerializeField] Animator e_Animator;
 
+    [SerializeField] SpriteRenderer renderIMG;
+    [SerializeField] Color getHit;
+    [SerializeField] Color backHit;
+    public float gethitCD;
 
-    SpriteRenderer sprite;
+    [SerializeField] private AudioSource hitAudio;
     enum Behavior
     { 
         walk,
@@ -29,7 +35,6 @@ public class EnemyBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
         behave = Behavior.walk;
     }
 
@@ -39,17 +44,19 @@ public class EnemyBehavior : MonoBehaviour
         switch (behave)
         {
             case Behavior.walk:
+                GetHit();
+
                 if (!dummy)
                 {
                     this.transform.Translate(Vector3.left * speed * Time.deltaTime);
-                    if (HP <= 0)
+                    if (hP <= 0)
                     {
                         death();
                     }
                 }
                 else
                 {
-                    if (HP < 10)
+                    if (hP < 10)
                     {
                         needHeal = true;
                     }
@@ -60,36 +67,45 @@ public class EnemyBehavior : MonoBehaviour
                         if (healCD <= 0.0f)
                         {
                             needHeal = false;
-                            HP = 10;
+                            hP = 10;
                             healCD = 7.0f;
                         }
                     }
                 }
                 break;
             case Behavior.attack:
-                if (HP <= 0)
+                if (hP <= 0)
                 {
                     death();
                 }
-                if (!dummy)
+
+                GetHit();
+
+                if (canHit)
                 {
-                    if(CanHit)
+                    e_Animator.SetTrigger("Attack");
+                    if(hitWait > 0.0f)
                     {
-                        CanHit = false;
-                        int ADMG = Random.Range(MxADMG,MnADMG);
-                        GameManager.instance.hp.GotHit(ADMG);
+                        hitWait -= Time.deltaTime;
                     }
-                    else
+                    else if (hitWait <= 0.0f)
                     {
-                        HitCD -= Time.deltaTime;
-                        if(HitCD<=0.0f)
-                        {
-                            CanHit = true;
-                            HitCD = 5.0f;
-                        }
+                        canHit = false;
+                        int ADMG = Random.Range(mxADMG, mnADMG);
+                        GameManager.instance.hp.GotHit(ADMG);
+                        hitWait = 0.3f;
+                    }
+
+                }
+                else
+                {
+                    hitCD -= Time.deltaTime;
+                    if (hitCD <= 0.0f)
+                    {
+                        canHit = true;
+                        hitCD = 5.0f;
                     }
                 }
-
                 break;
         }
     }
@@ -98,21 +114,23 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
+            hitAudio.Play();
+            gethitCD = 0.2f;
             //Debug.Log("Bullet ENTER");
             if (colliders[0].IsTouching(other))
             {
                 //Debug.Log("HEAD");
-                HP -= GameManager.Instance.gun.bDamage * 2;
+                hP -= GameManager.Instance.gun.bDamage * 2;
             }
             else if (colliders[1].IsTouching(other))
             {
                 //Debug.Log("BODY");
-                HP -= GameManager.Instance.gun.bDamage;
+                hP -= GameManager.Instance.gun.bDamage;
             }
             else if (colliders[2].IsTouching(other))
             {
                 //Debug.Log("LEG");
-                HP -= GameManager.Instance.gun.bDamage;
+                hP -= GameManager.Instance.gun.bDamage;
                 if (speed > 0.5)
                 {
                     speed -= 0.5f;
@@ -138,5 +156,18 @@ public class EnemyBehavior : MonoBehaviour
     {
         Destroy(this.gameObject);
         GameManager.instance.eneLeft--;
+    }
+
+    private void GetHit()
+    {
+        if (gethitCD > 0.0f)
+        {
+            renderIMG.color = getHit;
+            gethitCD-=Time.deltaTime;
+            if (gethitCD <= 0.0f)
+            {
+                renderIMG.color = backHit;
+            }
+        }
     }
 }

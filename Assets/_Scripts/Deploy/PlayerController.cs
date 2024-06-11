@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private int speed = 5;
-    [SerializeField] Animator P_Animator;
+    [SerializeField] Animator p_Animator;
 
     private Vector2 movement;
     private Rigidbody2D rb;
@@ -30,14 +30,14 @@ public class PlayerController : MonoBehaviour
 
         if (moving)
         {
-            P_Animator.ResetTrigger("Idling");
-            P_Animator.SetTrigger("Walking");
+            p_Animator.ResetTrigger("Idling");
+            p_Animator.SetTrigger("Walking");
         }
         else
         {
 
-            P_Animator.ResetTrigger("Walking");
-            P_Animator.SetTrigger("Idling");
+            p_Animator.ResetTrigger("Walking");
+            p_Animator.SetTrigger("Idling");
         }
     }
 

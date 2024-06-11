@@ -5,30 +5,33 @@ using TMPro;
 
 public class BUILDING_UPGRADER : MonoBehaviour
 {
-    [SerializeField] public TMP_Text Level_Text;
-    [SerializeField] public TMP_Text HP_TEXT;
-    [SerializeField] public TMP_Text UpgradePRICE_TEXT;
-    [SerializeField] public TMP_Text RepairHPRICE_TEXT;
-    [SerializeField] public TMP_Text RepairFPRICE_TEXT;
-    [SerializeField] public TMP_Text Debug_TEXT;
+    [SerializeField] public TMP_Text level_Text;
+    [SerializeField] public TMP_Text upgradePRICE_TEXT;
+    [SerializeField] public TMP_Text hP_TEXT;
+    [SerializeField] public TMP_Text repairHPRICE_TEXT;
+    [SerializeField] public TMP_Text repairFPRICE_TEXT;
+    [SerializeField] public TMP_Text debug_TEXT;
 
+    [SerializeField] private AudioSource clickAudio;
     void Update()
     {
-        Level_Text.text = ("LEVEL : " + GameManager.Instance.hp.barricadeLV).ToString();
-        HP_TEXT.text = "Barricade Health      " + (GameManager.Instance.hp.currHP + " / " + (GameManager.Instance.hp.barricadeLV * 100)).ToString();
-        UpgradePRICE_TEXT.text = (GameManager.Instance.hp.barricadeLV * 1000).ToString();
-        RepairHPRICE_TEXT.text = (GameManager.Instance.hp.barricadeLV * 50).ToString();
-        RepairFPRICE_TEXT.text = (GameManager.Instance.hp.barricadeLV * 90).ToString();
+        level_Text.text = ("LEVEL : " + GameManager.Instance.hp.barricadeLV).ToString();
+        hP_TEXT.text = "Barricade Health      " + (GameManager.Instance.hp.currHP + " / " + (GameManager.Instance.hp.barricadeLV * 100)).ToString();
+        upgradePRICE_TEXT.text = (GameManager.Instance.hp.barricadeLV * 1000).ToString();
+        repairHPRICE_TEXT.text = (GameManager.Instance.hp.barricadeLV * 50).ToString();
+        repairFPRICE_TEXT.text = (GameManager.Instance.hp.barricadeLV * 90).ToString();
     }
 
     public void UpgradeBarricade()
     {
-        Debug_TEXT.text = GameManager.Instance.hp.UpgradeBarricade();
+        clickAudio.Play();
+        debug_TEXT.text = GameManager.Instance.hp.UpgradeBarricade();
     }
 
     public void FixBarricade(int FixLevel)
     {
-        Debug_TEXT.text = GameManager.Instance.hp.FixBarricade(FixLevel);
+        clickAudio.Play();
+        debug_TEXT.text = GameManager.Instance.hp.FixBarricade(FixLevel);
     }
 
 }

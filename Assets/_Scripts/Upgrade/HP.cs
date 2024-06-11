@@ -9,7 +9,13 @@ public class HP : MonoBehaviour
     [SerializeField] public int barricadeLV = 1;
 
     [SerializeField] public GameObject[] barricade;
+    [SerializeField] public SpriteRenderer[] barricadeIMG;
 
+    [SerializeField] Color getHit;
+    [SerializeField] Color backHit;
+    public float gethitCD;
+
+    [SerializeField] private AudioSource bdmgAudio;
     void Start()
     {
         barricade[0].gameObject.SetActive(false);
@@ -49,7 +55,23 @@ public class HP : MonoBehaviour
             barricade[1].gameObject.SetActive(false);
             barricade[2].gameObject.SetActive(false);
         }
-        
+
+        if (gethitCD > 0.0f)
+        {
+            foreach (SpriteRenderer i in barricadeIMG)
+            {
+                i.color = getHit;
+            }
+            gethitCD -= Time.deltaTime;
+            if (gethitCD <= 0.0f)
+            {
+                foreach (SpriteRenderer i in barricadeIMG)
+                {
+                    i.color = backHit;
+                }
+            }
+        }
+
     }
 
     public string UpgradeBarricade()
@@ -114,7 +136,9 @@ public class HP : MonoBehaviour
 
     public void GotHit(int dmg)
     {
+        bdmgAudio.Play();
         currHP -= dmg;
+        gethitCD = 0.2f;
     }
 
     public void HPReset()
