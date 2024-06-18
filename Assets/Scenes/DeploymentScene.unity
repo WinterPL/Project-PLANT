@@ -595,6 +595,7 @@ MonoBehaviour:
   isGold: 0
   isENEleft: 1
   isDay: 0
+  isHighestDay: 0
 --- !u!4 &520610517
 Transform:
   m_ObjectHideFlags: 0
@@ -626,6 +627,7 @@ MonoBehaviour:
   isGold: 0
   isENEleft: 0
   isDay: 1
+  isHighestDay: 0
 --- !u!1 &591362558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,6 +1138,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2306124864300062043, guid: eac5fb0c08259684e8d5dd50a178d32e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735929175037228776, guid: eac5fb0c08259684e8d5dd50a178d32e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5752653354593477495, guid: eac5fb0c08259684e8d5dd50a178d32e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955011246614349894, guid: eac5fb0c08259684e8d5dd50a178d32e, type: 3}
+      propertyPath: m_Size.y
+      value: 19.793232
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955011246614349894, guid: eac5fb0c08259684e8d5dd50a178d32e, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.92339516
+      objectReference: {fileID: 0}
     - target: {fileID: 6391666024775773218, guid: eac5fb0c08259684e8d5dd50a178d32e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.7963829
@@ -1180,6 +1202,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8238786996520612500, guid: eac5fb0c08259684e8d5dd50a178d32e, type: 3}
+      propertyPath: m_Size.y
+      value: 19.793232
+      objectReference: {fileID: 0}
+    - target: {fileID: 8238786996520612500, guid: eac5fb0c08259684e8d5dd50a178d32e, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.92339516
+      objectReference: {fileID: 0}
     - target: {fileID: 8585188099200919016, guid: eac5fb0c08259684e8d5dd50a178d32e, type: 3}
       propertyPath: Loop
       value: 0
@@ -1187,6 +1217,14 @@ PrefabInstance:
     - target: {fileID: 8585188099200919016, guid: eac5fb0c08259684e8d5dd50a178d32e, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971003638451973839, guid: eac5fb0c08259684e8d5dd50a178d32e, type: 3}
+      propertyPath: m_Size.y
+      value: 19.793232
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971003638451973839, guid: eac5fb0c08259684e8d5dd50a178d32e, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.92339516
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

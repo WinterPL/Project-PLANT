@@ -8,6 +8,7 @@ public class TextManager : MonoBehaviour
     [SerializeField] public bool isGold = false;
     [SerializeField] public bool isENEleft = false;
     [SerializeField] public bool isDay = false;
+    [SerializeField] public bool isHighestDay = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,10 @@ public class TextManager : MonoBehaviour
         else if(isDay)
         {
             Text.text = "DAY : " + GameManager.Instance.day.ToString();
+        }
+        else if (isHighestDay)
+        {
+            Text.text = "Highest DAY : " + GameManager.Instance.HighestDay.ToString();
         }
     }
 
@@ -39,6 +44,10 @@ public class TextManager : MonoBehaviour
         else if (isDay)
         {
             Text.text = "DAY : " + GameManager.Instance.day.ToString();
+        }
+        else if (isHighestDay)
+        {
+            Text.text = "Highest DAY : " + GameManager.Instance.HighestDay.ToString();
         }
     }
 }

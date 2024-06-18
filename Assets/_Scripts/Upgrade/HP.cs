@@ -29,7 +29,15 @@ public class HP : MonoBehaviour
             float HPpercent = (currHP / (barricadeLV * 100.0f)) * 100.0f;
             if (HPpercent >= 50.0f)
             {
-                //Debug.Log(HPpercent);
+                if (gethitCD > 0.0f)
+                {
+                    barricadeIMG[0].color = getHit;
+                    gethitCD -= Time.deltaTime;
+                    if (gethitCD < 0.0f)
+                    {
+                        barricadeIMG[0].color = backHit;
+                    }
+                }
                 barricade[0].gameObject.SetActive(true);
                 barricade[1].gameObject.SetActive(false);
                 barricade[2].gameObject.SetActive(false);
@@ -37,12 +45,30 @@ public class HP : MonoBehaviour
             else if (HPpercent < 50.0f && HPpercent > 20.0f)
             {
                 //Debug.Log(HPpercent);
+                if (gethitCD > 0.0f)
+                {
+                    barricadeIMG[1].color = getHit;
+                    gethitCD -= Time.deltaTime;
+                    if (gethitCD < 0.0f)
+                    {
+                        barricadeIMG[1].color = backHit;
+                    }
+                }
                 barricade[0].gameObject.SetActive(false);
                 barricade[1].gameObject.SetActive(true);
                 barricade[2].gameObject.SetActive(false);
             }
             else if (HPpercent <= 20.0f)
             {
+                if (gethitCD > 0.0f)
+                {
+                    barricadeIMG[2].color = getHit;
+                    gethitCD -= Time.deltaTime;
+                    if (gethitCD < 0.0f)
+                    {
+                        barricadeIMG[2].color = backHit;
+                    }
+                }
                 //Debug.Log(HPpercent);
                 barricade[0].gameObject.SetActive(false);
                 barricade[1].gameObject.SetActive(false);
@@ -56,21 +82,7 @@ public class HP : MonoBehaviour
             barricade[2].gameObject.SetActive(false);
         }
 
-        if (gethitCD > 0.0f)
-        {
-            foreach (SpriteRenderer i in barricadeIMG)
-            {
-                i.color = getHit;
-            }
-            gethitCD -= Time.deltaTime;
-            if (gethitCD <= 0.0f)
-            {
-                foreach (SpriteRenderer i in barricadeIMG)
-                {
-                    i.color = backHit;
-                }
-            }
-        }
+       
 
     }
 
@@ -136,9 +148,10 @@ public class HP : MonoBehaviour
 
     public void GotHit(int dmg)
     {
+        Debug.Log("Get Hit called");
+        gethitCD = 0.2f;
         bdmgAudio.Play();
         currHP -= dmg;
-        gethitCD = 0.2f;
     }
 
     public void HPReset()

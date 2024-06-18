@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GUN gun;
     [SerializeField] public HP hp;
     [SerializeField] public int day = 1;
+    [SerializeField] public int HighestDay = 1;
     [SerializeField] public int gold;
     [SerializeField] public int eneLeft = 1;
     [SerializeField] public bool GODMODE = false;
@@ -61,6 +62,10 @@ public class GameManager : MonoBehaviour
         }
         day++;
         eneLeft = 1;
+        if(day > HighestDay)
+        {
+            HighestDay = day;
+        }
         SceneManager.LoadScene(0);
     }
 

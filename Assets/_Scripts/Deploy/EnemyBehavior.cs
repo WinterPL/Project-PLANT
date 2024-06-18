@@ -11,7 +11,7 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private float hitCD = 5.0f;
     [SerializeField] private bool canHit = true;
     [SerializeField] private Collider2D[] colliders;
-    private float hitWait = 0.2f;
+    private float hitWait = 1.0f;
 
     public bool dummy = false;
     public bool needHeal = false;
@@ -21,13 +21,15 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] SpriteRenderer renderIMG;
     [SerializeField] Color getHit;
     [SerializeField] Color backHit;
+    float cdDisappear = 1.0f;
     public float gethitCD;
 
     [SerializeField] private AudioSource hitAudio;
     enum Behavior
     { 
         walk,
-        attack
+        attack,
+        death
     };
 
     private Behavior behave;
@@ -44,15 +46,15 @@ public class EnemyBehavior : MonoBehaviour
         switch (behave)
         {
             case Behavior.walk:
+                if (hP <= 0)
+                {
+                    behave = Behavior.death;
+                }
                 GetHit();
 
                 if (!dummy)
                 {
                     this.transform.Translate(Vector3.left * speed * Time.deltaTime);
-                    if (hP <= 0)
-                    {
-                        death();
-                    }
                 }
                 else
                 {
@@ -76,15 +78,16 @@ public class EnemyBehavior : MonoBehaviour
             case Behavior.attack:
                 if (hP <= 0)
                 {
-                    death();
+                    behave = Behavior.death;
                 }
 
                 GetHit();
 
                 if (canHit)
                 {
+                    e_Animator.ResetTrigger("Arrive");
                     e_Animator.SetTrigger("Attack");
-                    if(hitWait > 0.0f)
+                    if (hitWait > 0.0f)
                     {
                         hitWait -= Time.deltaTime;
                     }
@@ -93,12 +96,13 @@ public class EnemyBehavior : MonoBehaviour
                         canHit = false;
                         int ADMG = Random.Range(mxADMG, mnADMG);
                         GameManager.instance.hp.GotHit(ADMG);
-                        hitWait = 0.3f;
+                        hitWait = 1.0f;
                     }
 
                 }
                 else
                 {
+                    e_Animator.ResetTrigger("Attack");
                     hitCD -= Time.deltaTime;
                     if (hitCD <= 0.0f)
                     {
@@ -106,6 +110,9 @@ public class EnemyBehavior : MonoBehaviour
                         hitCD = 5.0f;
                     }
                 }
+                break;
+            case Behavior.death:
+                death();
                 break;
         }
     }
@@ -130,7 +137,7 @@ public class EnemyBehavior : MonoBehaviour
             else if (colliders[2].IsTouching(other))
             {
                 //Debug.Log("LEG");
-                hP -= GameManager.Instance.gun.bDamage;
+                hP -= GameManager.Instance.gun.bDamage/2;
                 if (speed > 0.5)
                 {
                     speed -= 0.5f;
@@ -147,15 +154,22 @@ public class EnemyBehavior : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Barricade"))
         {
-            //Debug.Log("Barricade hit");
+            e_Animator.SetTrigger("Arrive");
             behave = Behavior.attack;
+
         }
     }
 
     private void death()
     {
-        Destroy(this.gameObject);
-        GameManager.instance.eneLeft--;
+        renderIMG.color = new Color(1f, 1f, 1f, cdDisappear); ;
+        cdDisappear -= 1f * Time.deltaTime;
+        if (cdDisappear < 0.0f)
+        {
+            GameManager.instance.eneLeft--;
+            Destroy(this.gameObject);
+        }
+       
     }
 
     private void GetHit()
