@@ -11,7 +11,7 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private float hitCD = 5.0f;
     [SerializeField] private bool canHit = true;
     [SerializeField] private Collider2D[] colliders;
-    private float hitWait = 1.0f;
+    private float hitWait = 0.9f;
 
     public bool dummy = false;
     public bool needHeal = false;
@@ -81,11 +81,11 @@ public class EnemyBehavior : MonoBehaviour
                     behave = Behavior.death;
                 }
 
+
                 GetHit();
 
                 if (canHit)
                 {
-                    e_Animator.ResetTrigger("Arrive");
                     e_Animator.SetTrigger("Attack");
                     if (hitWait > 0.0f)
                     {
@@ -96,7 +96,7 @@ public class EnemyBehavior : MonoBehaviour
                         canHit = false;
                         int ADMG = Random.Range(mxADMG, mnADMG);
                         GameManager.instance.hp.GotHit(ADMG);
-                        hitWait = 1.0f;
+                        hitWait = 0.9f;
                     }
 
                 }
@@ -106,6 +106,7 @@ public class EnemyBehavior : MonoBehaviour
                     hitCD -= Time.deltaTime;
                     if (hitCD <= 0.0f)
                     {
+                       
                         canHit = true;
                         hitCD = 5.0f;
                     }
@@ -123,20 +124,16 @@ public class EnemyBehavior : MonoBehaviour
         {
             hitAudio.Play();
             gethitCD = 0.2f;
-            //Debug.Log("Bullet ENTER");
             if (colliders[0].IsTouching(other))
             {
-                //Debug.Log("HEAD");
                 hP -= GameManager.Instance.gun.bDamage * 2;
             }
             else if (colliders[1].IsTouching(other))
             {
-                //Debug.Log("BODY");
                 hP -= GameManager.Instance.gun.bDamage;
             }
             else if (colliders[2].IsTouching(other))
             {
-                //Debug.Log("LEG");
                 hP -= GameManager.Instance.gun.bDamage/2;
                 if (speed > 0.5)
                 {
