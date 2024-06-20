@@ -102,7 +102,7 @@ public class EnemyBehavior : MonoBehaviour
                 }
                 else
                 {
-                    e_Animator.ResetTrigger("Attack");
+
                     hitCD -= Time.deltaTime;
                     if (hitCD <= 0.0f)
                     {
