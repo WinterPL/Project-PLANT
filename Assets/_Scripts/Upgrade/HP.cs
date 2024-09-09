@@ -44,7 +44,6 @@ public class HP : MonoBehaviour
             }
             else if (HPpercent < 50.0f && HPpercent > 20.0f)
             {
-                //Debug.Log(HPpercent);
                 if (gethitCD > 0.0f)
                 {
                     barricadeIMG[1].color = getHit;
@@ -69,7 +68,7 @@ public class HP : MonoBehaviour
                         barricadeIMG[2].color = backHit;
                     }
                 }
-                //Debug.Log(HPpercent);
+
                 barricade[0].gameObject.SetActive(false);
                 barricade[1].gameObject.SetActive(false);
                 barricade[2].gameObject.SetActive(true);
@@ -148,7 +147,6 @@ public class HP : MonoBehaviour
 
     public void GotHit(int dmg)
     {
-        Debug.Log("Get Hit called");
         gethitCD = 0.2f;
         bdmgAudio.Play();
         currHP -= dmg;

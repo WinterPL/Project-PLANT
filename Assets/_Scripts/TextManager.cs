@@ -26,7 +26,7 @@ public class TextManager : MonoBehaviour
         }
         else if (isHighestDay)
         {
-            Text.text = "Highest DAY : " + GameManager.Instance.HighestDay.ToString();
+            Text.text = "Highest DAY : " + GameManager.Instance.highestDay.ToString();
         }
     }
 
@@ -47,7 +47,7 @@ public class TextManager : MonoBehaviour
         }
         else if (isHighestDay)
         {
-            Text.text = "Highest DAY : " + GameManager.Instance.HighestDay.ToString();
+            Text.text = "Highest DAY : " + GameManager.Instance.highestDay.ToString();
         }
     }
 }
