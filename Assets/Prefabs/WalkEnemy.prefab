@@ -403,10 +403,9 @@ MonoBehaviour:
   healCD: 7
   e_Animator: {fileID: 3265141278444246890}
   renderIMG: {fileID: 8345834966628651959}
-  getHit: {r: 0.972549, g: 0.4745098, b: 0.4745098, a: 1}
+  getHit: {r: 0.6886792, g: 0, b: 0, a: 1}
   backHit: {r: 1, g: 1, b: 1, a: 1}
   gethitCD: 0
-  hitAudio: {fileID: 933943521531549473}
 --- !u!50 &6411448534424211169
 Rigidbody2D:
   serializedVersion: 4

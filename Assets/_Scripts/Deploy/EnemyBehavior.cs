@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    [SerializeField] private float hP = 10;
+    [SerializeField] private float hP = 0;
     [SerializeField] private float speed = 1.5f;
     [SerializeField] private int mxADMG = 10;
     [SerializeField] private int mnADMG = 5;
@@ -24,7 +24,7 @@ public class EnemyBehavior : MonoBehaviour
     float cdDisappear = 1.0f;
     public float gethitCD;
 
-    [SerializeField] private AudioSource hitAudio;
+    //[SerializeField] private AudioSource hitAudio;
     enum Behavior
     { 
         walk,
@@ -37,6 +37,7 @@ public class EnemyBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        hP = (GameManager.Instance.day * 5);
         behave = Behavior.walk;
     }
 
@@ -95,7 +96,7 @@ public class EnemyBehavior : MonoBehaviour
                     {
                         canHit = false;
                         int ADMG = Random.Range(mxADMG, mnADMG);
-                        GameManager.instance.hp.GotHit(ADMG);
+                        GameManager.Instance.hp.GotHit(ADMG);
                         hitWait = 0.9f;
                     }
 
@@ -122,7 +123,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            hitAudio.Play();
+            SoundManager.Instance.PlaySFX("EneHit");
             gethitCD = 0.2f;
             if (colliders[0].IsTouching(other))
             {
@@ -163,7 +164,7 @@ public class EnemyBehavior : MonoBehaviour
         cdDisappear -= 1f * Time.deltaTime;
         if (cdDisappear < 0.0f)
         {
-            GameManager.instance.eneLeft--;
+            GameManager.Instance.eneLeft--;
             Destroy(this.gameObject);
         }
        

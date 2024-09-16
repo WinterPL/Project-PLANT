@@ -14,11 +14,14 @@ public class EnemyDispenser : MonoBehaviour
     private float eneSpawnMinY = -3.45f;
     private float eneSpawnMaxY = 1.4f;
 
+    private float levelspawntime = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
         eneNum = GameManager.Instance.day * 2;
-        GameManager.instance.eneLeft = eneNum;
+        GameManager.Instance.eneLeft = eneNum;
+        levelspawntime = 10.0f / eneNum;
     }
 
     // Update is called once per frame
@@ -33,7 +36,7 @@ public class EnemyDispenser : MonoBehaviour
             Instantiate(_Enemy,position,Quaternion.identity);
 
             eneNum--;
-            eneSpawnTime = Random.Range(1.0f,3.0f);
+            eneSpawnTime = levelspawntime;
         }
     }
 }

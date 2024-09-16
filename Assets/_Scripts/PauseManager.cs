@@ -28,6 +28,7 @@ public class PauseManager : MonoBehaviour
 
     public void Pause()
     {
+        SoundManager.Instance.PlaySFX("Click");
         GameManager.Instance.pause = true;
         Time.timeScale = 0;
         pausePanel.SetActive(true);
@@ -35,6 +36,7 @@ public class PauseManager : MonoBehaviour
 
     public void Unpause()
     {
+        SoundManager.Instance.PlaySFX("Click");
         GameManager.Instance.pause = false;
         Time.timeScale = 1;
         pausePanel.SetActive(false);
@@ -53,7 +55,7 @@ public class PauseManager : MonoBehaviour
     public void MainMenu()
     {
         //CHEATs
-        SceneManager.LoadScene(0);
+        SceneChanger.ChangeScene(0);
     }
 
 }

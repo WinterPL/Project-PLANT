@@ -12,7 +12,7 @@ public class BUILDING_UPGRADER : MonoBehaviour
     [SerializeField] public TMP_Text repairFPRICE_TEXT;
     [SerializeField] public TMP_Text debug_TEXT;
 
-    [SerializeField] private AudioSource clickAudio;
+    //[SerializeField] private AudioSource clickAudio;
     void Update()
     {
         level_Text.text = ("LEVEL : " + GameManager.Instance.hp.barricadeLV).ToString();
@@ -24,13 +24,13 @@ public class BUILDING_UPGRADER : MonoBehaviour
 
     public void UpgradeBarricade()
     {
-        clickAudio.Play();
+        SoundManager.Instance.PlaySFX("Click");
         debug_TEXT.text = GameManager.Instance.hp.UpgradeBarricade();
     }
 
     public void FixBarricade(int FixLevel)
     {
-        clickAudio.Play();
+        SoundManager.Instance.PlaySFX("Click");
         debug_TEXT.text = GameManager.Instance.hp.FixBarricade(FixLevel);
     }
 

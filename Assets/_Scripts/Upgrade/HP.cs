@@ -15,7 +15,7 @@ public class HP : MonoBehaviour
     [SerializeField] Color backHit;
     public float gethitCD;
 
-    [SerializeField] private AudioSource bdmgAudio;
+    //[SerializeField] private AudioSource bdmgAudio;
     void Start()
     {
         barricade[0].gameObject.SetActive(false);
@@ -148,7 +148,7 @@ public class HP : MonoBehaviour
     public void GotHit(int dmg)
     {
         gethitCD = 0.2f;
-        bdmgAudio.Play();
+        SoundManager.Instance.PlaySFX("BuildingHit");
         currHP -= dmg;
     }
 

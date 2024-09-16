@@ -48,23 +48,23 @@ public class WEAPON_UPGRADER : MonoBehaviour
 
     public void UpRofFire()
     {
-        clickAudio.Play();
+        SoundManager.Instance.PlaySFX("Click");
         Debug_TEXT.text = GameManager.Instance.gun.UpgradeROF().ToString();
     }
 
     public void UpDMG()
     {
-        clickAudio.Play();
+        SoundManager.Instance.PlaySFX("Click");
         Debug_TEXT.text = GameManager.Instance.gun.UpgradeDMG().ToString();
     }
     public void UpSPD()
     {
-        clickAudio.Play();
+        SoundManager.Instance.PlaySFX("Click");
         Debug_TEXT.text = GameManager.Instance.gun.UpgradeSPD().ToString();
     }
     public void UpP()
     {
-        clickAudio.Play();
+        SoundManager.Instance.PlaySFX("Click");
         Debug_TEXT.text = GameManager.Instance.gun.UpgradeP().ToString();
     }
 

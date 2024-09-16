@@ -15,7 +15,6 @@ public class Shooting : MonoBehaviour
     public bool canShoot = true;
     public float RateOfF = 0.0f;
 
-    [SerializeField] private AudioSource shootAudio;
 
     void Start()
     {
@@ -45,7 +44,7 @@ public class Shooting : MonoBehaviour
         {
             if (Input.GetMouseButton(0) && canShoot)
             {
-                shootAudio.Play();
+                SoundManager.Instance.PlaySFX("GunShot");
                 canShoot = false;
                 Instantiate(bullet, bTransform.position, Quaternion.identity);
             }

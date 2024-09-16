@@ -6,22 +6,21 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    public static GameManager instance;
+    public static GameManager Instance;
     [SerializeField] public GUN gun;
     [SerializeField] public HP hp;
     [SerializeField] public int day = 1;
     [SerializeField] public int highestDay = 1;
     [SerializeField] public int gold;
     [SerializeField] public int eneLeft = 1;
-    [SerializeField] public bool GODMODE = false;
     [SerializeField] public bool pause = false;
 
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(this);
         }
         else
@@ -31,19 +30,20 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+       
         gold = 0;
-        if (GODMODE)
-        {
-            gold = 99999999;
-        }
+        
     }
 
-    public static GameManager Instance { get { return instance; } }
+    //public static GameManager Instance { get { return instance; } }
 
     private void Update()
     {
+
+
+
         //WIN
-        if(eneLeft <= 0)
+        if (eneLeft <= 0)
         {
             DayComplete();
         }
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         {
             highestDay = day;
         }
-        SceneManager.LoadScene(0);
+        SceneChanger.ChangeScene(0);
     }
 
     public void DayFail()
@@ -78,7 +78,13 @@ public class GameManager : MonoBehaviour
         gold = 0;
         day = 1;
         eneLeft = 1;
-        SceneManager.LoadScene(0);
+        SceneChanger.ChangeScene(0);
+    }
+
+    public void AngelGift()
+    {
+        gold += 99999999;
+        hp.currHP += 100000;
     }
 
 

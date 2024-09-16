@@ -14,7 +14,7 @@ public class TextManager : MonoBehaviour
     {
         if(isGold)
         {
-        Text.text = GameManager.instance.gold.ToString();
+        Text.text = GameManager.Instance.gold.ToString();
         }
         else if (isENEleft)
         {
@@ -35,7 +35,7 @@ public class TextManager : MonoBehaviour
     {
         if (isGold)
         {
-            Text.text = GameManager.instance.gold.ToString();
+            Text.text = GameManager.Instance.gold.ToString();
         }
         else if (isENEleft)
         {

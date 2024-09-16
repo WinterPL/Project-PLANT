@@ -7,21 +7,18 @@ public class SetActivePOPUP : MonoBehaviour
 
     public GameObject panel;
 
-    [SerializeField] private AudioSource clickAudio;
-
-
     private void Start()
     {
         panel.gameObject.SetActive(false);
     }
     public void OpenPanel()
     {
-        clickAudio.Play();
+        SoundManager.Instance.PlaySFX("Click");
         panel.gameObject.SetActive(true);
     }
     public void ClosePanel()
     {
-        clickAudio.Play();
+        SoundManager.Instance.PlaySFX("Click");
         panel.gameObject.SetActive(false);
     }
 
