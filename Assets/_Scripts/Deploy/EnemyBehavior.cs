@@ -37,7 +37,7 @@ public class EnemyBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hP = (GameManager.Instance.day * 5);
+        hP = ((GameManager.Instance.day+1) * 5);
         behave = Behavior.walk;
     }
 
@@ -160,6 +160,10 @@ public class EnemyBehavior : MonoBehaviour
 
     private void death()
     {
+        foreach (var collider in colliders)
+        {
+            Destroy(collider);
+        }
         renderIMG.color = new Color(1f, 1f, 1f, cdDisappear); ;
         cdDisappear -= 1f * Time.deltaTime;
         if (cdDisappear < 0.0f)

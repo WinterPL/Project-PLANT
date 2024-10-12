@@ -12,7 +12,9 @@ public class TextManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(isGold)
+        Text.gameObject.SetActive(true);
+
+        if (isGold)
         {
         Text.text = GameManager.Instance.gold.ToString();
         }
@@ -33,6 +35,11 @@ public class TextManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.Instance.isGameFinish)
+        {
+            Text.gameObject.SetActive(false);
+        }
+
         if (isGold)
         {
             Text.text = GameManager.Instance.gold.ToString();

@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class PauseManager : MonoBehaviour
 {
 
     public GameObject pausePanel;
+    public SceneChanger sC;
 
     private void Start()
     {
@@ -16,11 +17,11 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("escape") && GameManager.Instance.pause == false)
+        if (Input.GetKeyDown("escape") && !GameManager.Instance.isPause && !GameManager.Instance.isGameFinish)
         {
             Pause();
         }
-        else if (Input.GetKeyDown("escape") && GameManager.Instance.pause == true)
+        else if (Input.GetKeyDown("escape") && GameManager.Instance.isPause && !GameManager.Instance.isGameFinish)
         {
             Unpause();
         }
@@ -29,7 +30,7 @@ public class PauseManager : MonoBehaviour
     public void Pause()
     {
         SoundManager.Instance.PlaySFX("Click");
-        GameManager.Instance.pause = true;
+        GameManager.Instance.isPause = true;
         Time.timeScale = 0;
         pausePanel.SetActive(true);
     }
@@ -37,15 +38,16 @@ public class PauseManager : MonoBehaviour
     public void Unpause()
     {
         SoundManager.Instance.PlaySFX("Click");
-        GameManager.Instance.pause = false;
+        GameManager.Instance.isPause = false;
         Time.timeScale = 1;
         pausePanel.SetActive(false);
     }
 
     public void ResetGame()
     {
-        GameManager.Instance.DayFail();
-        GameManager.Instance.pause = false;
+        GameManager.Instance.ResetGame();
+        GameManager.Instance.isPause = false;
+        sC.ChangeScene(0);
     }
 
     public void Exit()
@@ -54,8 +56,8 @@ public class PauseManager : MonoBehaviour
     } 
     public void MainMenu()
     {
-        //CHEATs
-        SceneChanger.ChangeScene(0);
+        GameManager.Instance.isPause = false;
+        sC.ChangeScene(0);
     }
 
 }

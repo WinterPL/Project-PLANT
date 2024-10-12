@@ -525,12 +525,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 5258478157233179606}
   hp: {fileID: 8847739815125304573}
-  day: 1
-  highestDay: 1
+  day: 0
+  highestDay: 0
   gold: 0
   eneLeft: 1
-  GODMODE: 0
-  pause: 0
+  isPause: 0
+  isGameFinish: 0
 --- !u!114 &5258478157233179606
 MonoBehaviour:
   m_ObjectHideFlags: 0

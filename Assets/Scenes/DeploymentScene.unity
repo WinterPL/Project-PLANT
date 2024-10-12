@@ -1990,6 +1990,7 @@ GameObject:
   - component: {fileID: 661064853}
   - component: {fileID: 661064852}
   - component: {fileID: 661064854}
+  - component: {fileID: 661064855}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -2010,6 +2011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1825872131}
+  sC: {fileID: 661064855}
 --- !u!4 &661064853
 Transform:
   m_ObjectHideFlags: 0
@@ -2038,8 +2040,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayFailPanel: {fileID: 808860005}
-  dayComplerePanel: {fileID: 1510768816}
-  MoneyText: {fileID: 1477600365}
+  dayCompletePanel: {fileID: 1510768816}
+  goldText: {fileID: 1477600365}
+  tipsText: {fileID: 553179737}
+  tips:
+  - Good Job.
+  - Nice.
+  - You win just to lose another day.
+  - You win some, You lose some.
+  - Don't Forget to UPGRADE your weapon.
+  - Don't Forget to UPGRADE your building.
+--- !u!114 &661064855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661064851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dcf90b892b970348b6c2a45c53b773e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705998635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2386,7 +2408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &808860006
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2558,7 +2580,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7, y: -170}
+  m_AnchoredPosition: {x: -156, y: -170}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &875770380
@@ -3999,7 +4021,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -165, y: -170}
+  m_AnchoredPosition: {x: 342, y: -170}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1363956977
@@ -4071,7 +4093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.78867924, g: 0.7820081, b: 0.47469562, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4178,7 +4200,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1389064646}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 661064855}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1389064646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4850,7 +4884,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -89.993484, w: 0}
+  m_margin: {x: 0, y: 0, z: -197.79213, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5374,7 +5408,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1690127059}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 661064855}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1690127059
 MonoBehaviour:
   m_ObjectHideFlags: 0

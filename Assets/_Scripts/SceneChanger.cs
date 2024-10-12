@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    public static void ChangeScene(int SceneNum)
+    public void ChangeScene(int SceneNum)
     {
+        GameManager.Instance.isGameFinish = false;
         SceneManager.LoadScene(SceneNum);
         Time.timeScale = 1;
     }

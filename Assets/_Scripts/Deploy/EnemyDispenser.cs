@@ -19,7 +19,7 @@ public class EnemyDispenser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        eneNum = GameManager.Instance.day * 2;
+        eneNum = (GameManager.Instance.day+1) * 2;
         GameManager.Instance.eneLeft = eneNum;
         levelspawntime = 10.0f / eneNum;
     }
