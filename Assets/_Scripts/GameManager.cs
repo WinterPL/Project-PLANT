@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int eneLeft = 1;
     [SerializeField] public bool pause = false;
 
-
     private void Awake()
     {
         if (Instance == null)
@@ -30,18 +29,13 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-       
         gold = 0;
-        
     }
 
     //public static GameManager Instance { get { return instance; } }
 
     private void Update()
     {
-
-
-
         //WIN
         if (eneLeft <= 0)
         {
@@ -57,18 +51,13 @@ public class GameManager : MonoBehaviour
 
     private void DayComplete()
     {
-        int enemies = day * 2;
-        for(int i = enemies; i > 0; i--)
-        {
-            gold += Random.Range(50,100);
-        }
         day++;
         eneLeft = 1;
         if(day > highestDay)
         {
             highestDay = day;
         }
-        SceneChanger.ChangeScene(0);
+        WinLose_Manager.Win();
     }
 
     public void DayFail()
@@ -78,7 +67,7 @@ public class GameManager : MonoBehaviour
         gold = 0;
         day = 1;
         eneLeft = 1;
-        SceneChanger.ChangeScene(0);
+        WinLose_Manager.Lose();
     }
 
     public void AngelGift()
